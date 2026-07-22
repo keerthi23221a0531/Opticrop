@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OptiCrop - Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #111; color: #fff; }
+        .topnav { background-color: #222; overflow: hidden; }
+        .topnav a { float: left; display: block; color: #f2f2f2; text-align: center;
+                    padding: 14px 16px; text-decoration: none; }
+        .topnav a.active { background-color: #4CAF50; color: white; }
+        .topnav a:hover { background-color: #333; }
+        .hero { padding: 40px 16px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('findyourcrop') }}">FindYourCrop</a>
+    </div>
+
+    <div style="padding-left:16px">
+        <h2>Opti Crop Agricultural Optimisation</h2>
+        <p>The main purpose of the OptiCrop aims to develop an advanced software system
+           that utilizes data-driven insights to optimize agricultural production for
+           different crops.</p>
+    </div>
+
+    <div class="hero">
+        <h1>opti-crop</h1>
+    </div>
+</body>
+</html>

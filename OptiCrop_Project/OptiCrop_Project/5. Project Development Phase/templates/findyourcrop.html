@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OptiCrop - Find Your Crop</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #111; color: #fff; }
+        .topnav { background-color: #222; overflow: hidden; }
+        .topnav a { float: left; display: block; color: #f2f2f2; text-align: center;
+                    padding: 14px 16px; text-decoration: none; }
+        .topnav a.active { background-color: #4CAF50; color: white; }
+        .topnav a:hover { background-color: #333; }
+        .banner { background: #f7e017; color: #111; text-align: center; padding: 10px;
+                   font-weight: bold; font-style: italic; }
+        form { max-width: 320px; margin: 20px auto; text-align: center; }
+        input { width: 100%; padding: 8px; margin: 6px 0; box-sizing: border-box; }
+        .btn { background: #4CAF50; color: white; border: none; padding: 10px 20px;
+               cursor: pointer; width: 100%; }
+        .flask-output { text-align: center; font-size: 1.2em; color: #4CAF50; }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a class="active" href="{{ url_for('findyourcrop') }}">FindYourCrop</a>
+    </div>
+
+    <div class="banner">Find Your Best Crop Here — Please enter the conditions</div>
+
+    <h6>
+    <center>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label for="nitrogen">nitrogen:</label><br>
+            <input type="text" id="nitrogen" name="nitrogen" placeholder="nitrogen" required="required"/><br><br>
+
+            <label for="phosphorous">phosphorous:</label><br>
+            <input type="text" id="phosphorous" name="phosphorous" placeholder="phosphorous" required="required"/><br><br>
+
+            <label for="potassium">potassium:</label><br>
+            <input type="text" id="potassium" name="potassium" placeholder="potassium" required="required"/><br><br>
+
+            <label for="temperature">temperature:</label><br>
+            <input type="text" id="temperature" name="temperature" placeholder="temperature" required="required"/><br><br>
+
+            <label for="humidity">humidity:</label><br>
+            <input type="text" id="humidity" name="humidity" placeholder="humidity" required="required"/><br><br>
+
+            <label for="ph">ph:</label><br>
+            <input type="text" id="ph" name="ph" placeholder="ph" required="required"/><br><br>
+
+            <label for="rainfall">rainfall:</label><br>
+            <input type="text" id="rainfall" name="rainfall" placeholder="rainfall" required="required"/><br><br>
+
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+        <br>
+    </center>
+    </h6>
+
+    <h3>
+        <p class="flask-output">{{ prediction_text }}</p>
+    </h3>
+</body>
+</html>
